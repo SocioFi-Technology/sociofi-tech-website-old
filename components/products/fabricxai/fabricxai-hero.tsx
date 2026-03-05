@@ -143,7 +143,9 @@ const FabricxaiHero = () => {
                 className="rounded-lg shadow-xl"
               />
               <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
-                <Badge className="bg-accent-green text-white">Designed for Bangladesh's Garment Industry</Badge>
+                <span className="inline-flex items-center rounded-full border border-transparent bg-accent-green px-2.5 py-0.5 text-xs font-semibold text-white">
+                  Designed for Bangladesh's Garment Industry
+                </span>
               </div>
             </div>
           </motion.div>
