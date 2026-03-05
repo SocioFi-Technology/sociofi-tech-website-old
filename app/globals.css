@@ -1,0 +1,252 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 173 80% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 222 47% 11%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 173 80% 40%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 173 80% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 217 33% 17%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 217 33% 14%;
+    --muted-foreground: 215 20% 65%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 173 80% 45%;
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased transition-colors duration-300;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading font-bold tracking-tight;
+  }
+  p,
+  span,
+  a,
+  li {
+    @apply font-sans;
+  }
+}
+
+/* Modern gradient mesh background */
+.gradient-mesh-bg {
+  background: radial-gradient(at 40% 20%, hsla(173, 58%, 39%, 0.08) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(262, 83%, 58%, 0.05) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(199, 89%, 48%, 0.06) 0px, transparent 50%);
+}
+
+.dark .gradient-mesh-bg {
+  background: radial-gradient(at 40% 20%, hsla(173, 58%, 45%, 0.06) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(262, 83%, 58%, 0.04) 0px, transparent 50%);
+}
+
+/* Section backgrounds - premium alternating */
+.section-muted {
+  @apply bg-slate-50/80 dark:bg-neutral-slate/30;
+}
+.section-dark {
+  @apply bg-neutral-slate text-white;
+}
+.section-dark .section-heading,
+.section-dark h2,
+.section-dark h3 {
+  @apply text-white;
+}
+.section-dark p,
+.section-dark .section-sub {
+  @apply text-white/75;
+}
+.section-border {
+  @apply border-t border-border/60;
+}
+.section-label {
+  @apply text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground;
+}
+.section-label-accent {
+  @apply text-xs font-semibold uppercase tracking-[0.2em];
+}
+
+/* Glass effect */
+.glass {
+  @apply bg-white/80 dark:bg-neutral-slate/80 backdrop-blur-xl border border-white/20 dark:border-white/5;
+}
+
+/* Card hover lift */
+.card-hover {
+  @apply transition-all duration-300 ease-out;
+}
+.card-hover:hover {
+  @apply -translate-y-1 shadow-xl shadow-primary-keppel/5 dark:shadow-primary-keppel/10;
+}
+
+/* Subtle grid pattern */
+.pattern-grid {
+  background-image: linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.5;
+}
+
+/* Force white text in CTA sections */
+.bg-primary-teal h1,
+.bg-primary-teal h2,
+.bg-primary-teal h3,
+.bg-primary-teal h4,
+.bg-primary-teal h5,
+.bg-primary-teal h6,
+.bg-primary-teal p {
+  color: white !important;
+}
+
+/* Dark CTA sections: ensure text and buttons are visible */
+.bg-brand-teal,
+.bg-brand-teal h1,
+.bg-brand-teal h2,
+.bg-brand-teal h3,
+.bg-brand-teal h4,
+.bg-brand-teal h5,
+.bg-brand-teal h6,
+.bg-brand-teal p,
+.bg-brand-teal a {
+  color: white !important;
+}
+.bg-brand-teal a:hover {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+.bg-brand-teal .text-white\/90 {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Gradient dark CTA (slate → indigo) */
+.cta-dark-section,
+.cta-dark-section h1,
+.cta-dark-section h2,
+.cta-dark-section h3,
+.cta-dark-section h4,
+.cta-dark-section h5,
+.cta-dark-section h6,
+.cta-dark-section p {
+  color: white !important;
+}
+.cta-dark-section .text-white\/85,
+.cta-dark-section .text-white\/90 {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+.cta-dark-section button[class*="outline"]:hover,
+.cta-dark-section a[class*="border-white"]:hover {
+  color: white !important;
+}
+
+/* Modern backgrounds - replace old geometric */
+.hero-animation {
+  display: none;
+}
+.geometric-bg {
+  @apply gradient-mesh-bg;
+}
+.bangladesh-pattern {
+  @apply gradient-mesh-bg;
+}
+.dark .hero-animation {
+  display: none;
+}
+
+.service-card {
+  @apply card-hover;
+}
+.dark .service-card {
+  @apply bg-card;
+}
+
+/* Nav: ensure link/button hover is visible in both light and dark theme */
+header nav a.rounded-lg:hover,
+header nav button.rounded-lg:hover {
+  background-color: hsl(210 40% 96% / 0.9);
+  color: hsl(173 80% 40%);
+}
+.dark header nav a.rounded-lg:hover,
+.dark header nav button.rounded-lg:hover {
+  background-color: hsl(0 0% 100% / 0.12);
+  color: hsl(173 80% 50%);
+}
+header nav a.rounded-lg:hover svg,
+header nav button.rounded-lg:hover svg {
+  color: inherit;
+}
+/* Mobile menu: same hover visibility */
+header [class*="glass"] a.rounded-lg:hover {
+  background-color: hsl(210 40% 96% / 0.9);
+  color: hsl(173 80% 40%);
+}
+.dark header [class*="glass"] a.rounded-lg:hover {
+  background-color: hsl(0 0% 100% / 0.12);
+  color: hsl(173 80% 50%);
+}
