@@ -56,6 +56,13 @@ const Navbar = () => {
         { name: "AinGyan", href: "/products/aingyan" },
       ],
     },
+    {
+      name: "Studio",
+      href: "/studio",
+      dropdown: [
+        { name: "Portfolio", href: "/studio/portfolio" },
+      ],
+    },
     { name: "Careers", href: "/careers" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
